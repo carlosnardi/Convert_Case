@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'pages/home', as: 'home'
+  # get 'pages/home', as: 'home'
   get 'pages/about', as: 'about'
   get 'pages/contact', as: 'contact'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root 'pages#home'
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'converter/index', as: 'index'
+  # root 'pages#home'
+  match 'converter', to: 'converter#index', via: [:get, :post]
+
+  root 'converter#index'
+  
 end

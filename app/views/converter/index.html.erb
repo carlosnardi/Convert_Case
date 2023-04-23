@@ -1,0 +1,13 @@
+
+
+<h1>Converter Texto para Upcase</h1>
+
+<%= form_tag converter_path, method: :get do %>
+  <%= label_tag :text, 'Insira o texto a ser convertido:' %><br>
+  <%= text_field_tag :text %><br>
+  <%= submit_tag 'Converter' %>
+<% end %>
+
+<% if @upcase_text.present? %>
+  <p>O texto convertido é: <%= @upcase_text %></p>
+<% end %>

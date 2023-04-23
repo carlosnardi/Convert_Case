@@ -3,7 +3,7 @@
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem "sqlite3"
-#
+
 default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -11,6 +11,7 @@ default: &default
 
 development:
   <<: *default
+  adapter: sqlite3
   database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
@@ -23,3 +24,21 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+
+# ATIVAR ABAIXO
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   host: localhost
+#   username: <%= ENV['carlosn'] %>
+#   password: <%= ENV['6585'] %>
+
+# development:
+#   <<: *default
+#   database: myapp_development
+
+# test:
+#   <<: *default
+#   database: myapp_test
