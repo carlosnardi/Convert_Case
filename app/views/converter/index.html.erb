@@ -8,6 +8,9 @@
   <%= submit_tag 'Convert' %>
 <% end %>
 
+<p>Number of characters: <%= @length_text %></p>
+<p>Number of words: <%= @words_text %></p>
+
 <% if @upcase_text.present? %>
   <p>Text converted: <%= @upcase_text %></p>
 <% end %>
