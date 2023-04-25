@@ -14,4 +14,15 @@ class TextConverter < ApplicationRecord
     def self.downcase_text(text)
         text.downcase
     end
+   
+    def self.capitalize_text(text)
+        text = text.split(/(?<=[.?!]) /)
+        text = text.map{|item| item.capitalize}
+        text = text.join(' ')
+        return text
+    end
+    
+    def self.titleize_text(text)
+        text.titleize
+    end
 end

@@ -11,6 +11,10 @@
   <%= label_tag :option_uppercase, 'Upper case' %><br>
   <%= radio_button_tag :option, 'lowercase' %>
   <%= label_tag :option_downcase, 'Lower case' %><br>
+  <%= radio_button_tag :option, 'capitalize' %>
+  <%= label_tag :option_capitalize, 'Capitalize' %><br>
+  <%= radio_button_tag :option, 'titleize' %>
+  <%= label_tag :option_titleize, 'Titleize' %><br>
   <%= submit_tag 'Convert' %>
 <% end %>
 
@@ -22,4 +26,8 @@
   <%= @upcase_text %>
 <% elsif params[:option] == 'lowercase' %>
   <%= @downcase_text %>
+<% elsif params[:option] == 'capitalize' %>
+  <%= @capitalize_text %>
+<% elsif params[:option] == 'titleize' %>
+  <%= @titleize_text %>
 <% end %>
