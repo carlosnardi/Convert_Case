@@ -5,12 +5,21 @@
 <%= form_tag converter_path, method: :get do %>
   <%= label_tag :text, 'Enter the text you want to convert :' %><br>
   <%= text_field_tag :text %><br>
+
+  <%= label_tag :option, "Select how do you want to convert: " %><br>
+  <%= radio_button_tag :option, 'uppercase' %>
+  <%= label_tag :option_uppercase, 'Upper case' %><br>
+  <%= radio_button_tag :option, 'lowercase' %>
+  <%= label_tag :option_downcase, 'Lower case' %><br>
   <%= submit_tag 'Convert' %>
 <% end %>
 
 <p>Number of characters: <%= @length_text %></p>
 <p>Number of words: <%= @words_text %></p>
 
-<% if @upcase_text.present? %>
-  <p>Text converted: <%= @upcase_text %></p>
+<p>Text converted: </p>
+<% if params[:option] == 'uppercase' %>
+  <%= @upcase_text %>
+<% elsif params[:option] == 'lowercase' %>
+  <%= @downcase_text %>
 <% end %>

@@ -10,4 +10,8 @@ class TextConverter < ApplicationRecord
     def self.upcase_text(text)
         text.upcase
     end
+
+    def self.downcase_text(text)
+        text.downcase
+    end
 end
