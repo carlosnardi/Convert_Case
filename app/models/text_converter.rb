@@ -20,7 +20,7 @@ class TextConverter < ApplicationRecord
     end
    
     def self.capitalize_text(text)
-        text = text.split(/(?<=[.?!]) /)
+        text = text.split(/(?<=[.?!])[\s\n]/)
         text = text.map{|item| item.capitalize}
         text = text.join(' ')
         return text
