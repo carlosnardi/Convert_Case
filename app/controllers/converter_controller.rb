@@ -3,10 +3,12 @@ class ConverterController < ApplicationController
       if params[:text].present?
         @length_text = TextConverter.text_length(params[:text])
         @words_text = TextConverter.text_words(params[:text])
+        @lines_text = TextConverter.text_lines(params[:text])
         @upcase_text = TextConverter.upcase_text(params[:text])
         @downcase_text = TextConverter.downcase_text(params[:text])
         @capitalize_text = TextConverter.capitalize_text(params[:text])
         @titleize_text = TextConverter.titleize_text(params[:text])
+        @invert_text = TextConverter.invert_text(params[:text])
       end
     end
 end

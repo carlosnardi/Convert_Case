@@ -8,19 +8,22 @@
 
   <%= label_tag :option, "Select how do you want to convert: " %><br>
   <%= radio_button_tag :option, 'uppercase' %>
-  <%= label_tag :option_uppercase, 'Upper case' %><br>
+  <%= label_tag :option_uppercase, 'UPPER CASE' %><br>
   <%= radio_button_tag :option, 'lowercase' %>
-  <%= label_tag :option_downcase, 'Lower case' %><br>
+  <%= label_tag :option_downcase, 'lower case' %><br>
   <%= radio_button_tag :option, 'capitalize' %>
-  <%= label_tag :option_capitalize, 'Capitalize' %><br>
+  <%= label_tag :option_capitalize, 'Capitalize text' %><br>
   <%= radio_button_tag :option, 'titleize' %>
-  <%= label_tag :option_titleize, 'Titleize' %><br>
+  <%= label_tag :option_titleize, 'Titleize Text' %><br>
+  <%= radio_button_tag :option, 'invert' %>
+  <%= label_tag :option_invert, 'iNVERT' %><br>
   <%= submit_tag 'Convert' %>
 <% end %>
 
 <p>Number of characters: <%= @length_text %></p>
 <p>Number of words: <%= @words_text %></p>
-
+<p>Number of lines: <%= @lines_text %></p>
+ 
 
 <% if params[:option] == 'uppercase' %>
   <% result = @upcase_text %>
@@ -29,7 +32,9 @@
 <% elsif params[:option] == 'capitalize' %>
   <% result = @capitalize_text %>
 <% elsif params[:option] == 'titleize' %>
-  <%result = @titleize_text %>
+  <% result = @titleize_text %>
+<% elsif params[:option] == 'invert' %>
+  <% result = @invert_text %>
 <% end %>
 
 <p>Text converted: <%= result %></p>
