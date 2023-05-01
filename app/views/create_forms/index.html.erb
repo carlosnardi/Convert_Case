@@ -1,0 +1,25 @@
+<h1>Creating forms for Ruby on Rails view files</h1>
+
+<p>Use this to guide you through creating simple forms with two radio buttons.</p>
+
+<%= form_tag create_form_path, method: :get do %>
+  <%= label_tag :text, 'Please insert the title of the page: ' %>
+  <%= text_field_tag :title, params[:title] %><br>
+  <%= label_tag :text, 'Insert the title of the form: ' %>
+  <%= text_field_tag :title_text, params[:title_text] %><br>
+  <%= label_tag :text, 'Insert the first radio button label: ' %>
+  <%= text_field_tag :radio1_label, params[:radio1_label] %><br>
+  <%= label_tag :text, 'Insert the second radio button label: ' %>
+  <%= text_field_tag :radio2_label, params[:radio2_label] %><br>
+  <br>
+  <%= submit_tag 'Let´s do it' %>
+<% end %>
+
+<% if params[:title].present? && params[:title_text].present? && params[:radio1_label].present? && params[:radio2_label].present? %>
+  <p> Here we go... </p>
+  <pre>
+    <%= @result %>
+  </pre>
+<% else %>
+  <p>Please insert all requested data</p>
+<% end %> 

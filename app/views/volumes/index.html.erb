@@ -1,0 +1,19 @@
+<h1> Volume converter </h1>
+    
+    <%= form_tag volume_path, method: :get do %>
+    <%= label_tag :text, 'Select what you want to convert:' %><br>
+    <%= text_field_tag :text, params[:text] %><br>
+    <%= radio_button_tag :option, 'option1' %>
+    <%= label_tag :option_1, 'ml to oz' %><br>
+    <%= radio_button_tag :option, 'option2' %>
+    <%= label_tag :option_2, 'oz to ml' %><br>
+    <br>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+  <% if params[:option] == 'option1' %>
+    <% result = @ml_oz %>
+  <% elsif params[:option] == 'option2' %>
+    <% result = @oz_ml %>
+  <% end %>
+  <br>
+  <p> Result: <%= result %></p>
