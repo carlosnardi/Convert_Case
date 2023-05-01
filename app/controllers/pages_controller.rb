@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def other_tools
+  end
 end
