@@ -1,0 +1,22 @@
+<h1> Temperature Converter </h1>
+<br>
+
+<%= form_tag temp_path, method: :get do %>
+  <%= label_tag :value, 'Type the temperature value: ' %><br>
+  <%= text_field_tag :value, params[:value] %><br>
+  <%= label_tag :option, 'Select source temperature unit: ' %><br>
+    <%= radio_button_tag :option, 'c_f' %>
+    <%= label_tag :option_c_f, 'Celsius to Fahrenheit' %><br>
+    <%= radio_button_tag :option, 'f_c' %>
+    <%= label_tag :option_f_c, 'Fahrenheit to Celsius' %><br>
+    <br>
+    <%= submit_tag 'Convert' %>
+<% end %>
+
+<% if params[:option] == 'c_f' %>
+  <% result = @c_f %>
+<% elsif params[:option] == 'f_c' %>
+  <% result = @f_c %>
+<% end %>
+<br>
+<p> Result: <%= result %> </p>

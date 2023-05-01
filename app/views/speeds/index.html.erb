@@ -1,0 +1,23 @@
+<h1>Speed Converter</h1>
+<br>
+
+<%= form_tag speed_path, method: :get do %>
+  <%= label_tag :value, 'Write the speed value you want to convert and then select the type of conversion unit: ' %><br>
+  <%= text_field_tag :value, params[:value] %><br>
+  <%= radio_button_tag :option, 'km_mp' %>
+  <%= label_tag :option_km_mp, 'Kilometers per hour to miles per hour' %><br>
+  <%= radio_button_tag :option, 'mp_km'%>
+  <%= label_tag :option_mp_km,  'Miles per hour to kilometers per hour' %><br>
+  <br>
+  <%= submit_tag 'Convert' %>
+<% end %>
+
+<% if params[:option] == 'km_mp' %>
+  <% result = @kmh_mph %>
+<% elsif params[:option] == 'mp_km' %>
+  <% result = @mph_kmh %>
+<% end %>
+
+<br>
+<p>Result: </p> 
+<%= result %>
