@@ -17,7 +17,7 @@
   <%= label_tag :option_titleize, 'Titleize Text' %><br>
   <%= radio_button_tag :option, 'invert' %>
   <%= label_tag :option_invert, 'iNVERT' %><br>
-  <%= submit_tag 'Convert' %>
+  <%= submit_tag 'Convert', class:'btn btn-secondary btn-sm' %>
 <% end %>
 
 <p>Number of characters: <%= @length_text %></p>
@@ -37,4 +37,28 @@
   <% result = @invert_text %>
 <% end %>
 
-<p>Text converted: <%= result %></p>
+<p>Text converted: </p> 
+<%= result %>
+<br>
+<%= link_to 'Copy text', '#', id: 'copy-button', class: 'btn btn-secondary btn-sm' %>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const copyButton = document.getElementById('copy-button');
+  const resultText = '<%= j(result) %>';
+
+  copyButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const input = document.createElement('textarea');
+    input.innerHTML = resultText;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+
+    alert('Text copied to clipboard');
+  });
+});
+</script>
+
