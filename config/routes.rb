@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
   match 'converter', to: 'converter#index', via: [:get, :post]
 
-  root 'converter#index'
+  root 'pages#home'
   
 end
